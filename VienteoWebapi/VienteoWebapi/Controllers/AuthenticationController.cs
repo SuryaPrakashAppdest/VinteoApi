@@ -1,22 +1,25 @@
-﻿using Model.RequestModel;
-using Model.ResponseModel;
+﻿using VinteoModel.ResponseModel;
+using VinteoModel.RequestModel;
 using System.Web.Http;
-using System.Web.Http.Cors;
+using VinteoBLL;
 
 namespace VienteoWebapi.Controllers
 {
-    //[EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/Authentication")]
     public class AuthenticationController : ApiController
     {
+        private AuthenticateBll _Auth;
+        public AuthenticationController()
+        {
+            _Auth = new AuthenticateBll();
+
+        }
         [HttpPost]
-        [ActionName("api/AuthenticateUser")]
+        [Route("AuthenticateUser")]
         public LoginResponse AuthenticateUser(LoginRequest login)
         {
             LoginResponse loginResponse = new LoginResponse();
-            loginResponse.UserId = 1;
-            loginResponse.UserName = "Surya";
-            loginResponse.EmailId = "suryaprakash.jagarapu@hotmail.com";
-            loginResponse.MobileNo = "7095448855";
+            loginResponse = _Auth.GetLogin(login);
             return loginResponse;
         }
     }

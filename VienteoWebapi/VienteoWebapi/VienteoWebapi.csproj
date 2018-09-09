@@ -190,7 +190,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -265,9 +264,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{a0514b8c-a817-4ecb-b70d-108919d0f68d}</Project>
-      <Name>Model</Name>
+    <ProjectReference Include="..\VinteoBLL\VinteoBLL.csproj">
+      <Project>{0b172b52-aade-4af7-8d92-59ced619c20f}</Project>
+      <Name>VinteoBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VinteoModel\VinteoModel.csproj">
+      <Project>{45FF249B-0DCC-4EA8-BD75-6B81B0878CB5}</Project>
+      <Name>VinteoModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
