@@ -19,5 +19,9 @@ namespace VinteoBLL
         {
             return _Auth.GetLogin(loginrequest);
         }
+        public int RegisterUser(RegisterRequest registerRequest)
+        {
+            return _Auth.RegisterUser(registerRequest);
+        }
     }
 }

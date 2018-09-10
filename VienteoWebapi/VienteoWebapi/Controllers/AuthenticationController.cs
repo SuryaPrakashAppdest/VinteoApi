@@ -22,5 +22,11 @@ namespace VienteoWebapi.Controllers
             loginResponse = _Auth.GetLogin(login);
             return loginResponse;
         }
+        [HttpPost]
+        [Route("RegisterUser")]
+        public int RegisterUser(RegisterRequest registerRequest)
+        {
+            return _Auth.RegisterUser(registerRequest);
+        }
     }
 }

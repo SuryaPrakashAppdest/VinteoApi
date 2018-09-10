@@ -4,7 +4,7 @@ using VinteoModel.ResponseModel;
 
 namespace VienteoWebapi.Controllers
 {
-    //[EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/Vinteo")]
     public class VinteoController : ApiController
     {
         #region private string
@@ -35,7 +35,7 @@ namespace VienteoWebapi.Controllers
 }";
         #endregion
         [HttpGet]
-        [ActionName("RedeemLog")]
+        [Route("RedeemLog")]
         public IList<RedeemLogRespose> GetRedeemLog()
         {
             IList<RedeemLogRespose> redeemLog = new List<RedeemLogRespose>();
@@ -43,13 +43,15 @@ namespace VienteoWebapi.Controllers
             {
                 for (int i = 1; i <= 10; i++)
                 {
-                    RedeemLogRespose logRespose = new RedeemLogRespose();
-                    logRespose.UserName = "User" + i;
-                    logRespose.GatewayName = "paytm";
-                    logRespose.RedeemPoints = 100;
-                    logRespose.RedeemDate = System.DateTime.Now.ToShortDateString();
-                    logRespose.TotalPoints = 100;
-                    logRespose.BalancePoints = 100;
+                    RedeemLogRespose logRespose = new RedeemLogRespose
+                    {
+                        UserName = "User" + i,
+                        GatewayName = "paytm",
+                        RedeemPoints = 100,
+                        RedeemDate = System.DateTime.Now.ToShortDateString(),
+                        TotalPoints = 100,
+                        BalancePoints = 100
+                    };
                     redeemLog.Add(logRespose);
                 }
             }
@@ -60,7 +62,7 @@ namespace VienteoWebapi.Controllers
             return redeemLog;
         }
         [HttpGet]
-        [ActionName("VideoApprove")]
+        [Route("VideoApprove")]
         public IList<VideoResponse> VideoApprove()
         {
             IList<VideoResponse> lstVideoResponse = new List<VideoResponse>();
@@ -68,11 +70,13 @@ namespace VienteoWebapi.Controllers
             {
                 for (int i = 1; i <= 2; i++)
                 {
-                    VideoResponse videoRespose = new VideoResponse();
-                    videoRespose.VideoId = i;
-                    videoRespose.VideoCode = "Cv0I2mdYlVw";
-                    videoRespose.QuestionString = jsonData;
-                    videoRespose.IsApproved = false;
+                    VideoResponse videoRespose = new VideoResponse
+                    {
+                        VideoId = i,
+                        VideoCode = "Cv0I2mdYlVw",
+                        QuestionString = jsonData,
+                        IsApproved = false
+                    };
                     lstVideoResponse.Add(videoRespose);
                 }
                 return lstVideoResponse;
