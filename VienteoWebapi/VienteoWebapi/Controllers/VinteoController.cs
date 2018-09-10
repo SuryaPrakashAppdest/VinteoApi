@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using VinteoModel.ResponseModel;
 
 namespace VienteoWebapi.Controllers
 {
@@ -33,53 +34,53 @@ namespace VienteoWebapi.Controllers
         },
 }";
         #endregion
-        //[HttpGet]
-        //[ActionName("RedeemLog")]
-        //public IList<RedeemLogRespose> GetRedeemLog()
-        //{
-        //    IList<RedeemLogRespose> redeemLog = new List<RedeemLogRespose>();
-        //    try
-        //    {
-        //        for (int i = 1; i <= 10; i++)
-        //        {
-        //            RedeemLogRespose logRespose = new RedeemLogRespose();
-        //            logRespose.UserName = "User" + i;
-        //            logRespose.GatewayName = "paytm";
-        //            logRespose.RedeemPoints = 100;
-        //            logRespose.RedeemDate = System.DateTime.Now.ToShortDateString();
-        //            logRespose.TotalPoints = 100;
-        //            logRespose.BalancePoints = 100;
-        //            redeemLog.Add(logRespose);
-        //        }
-        //    }
-        //    catch (System.Exception)
-        //    {
-        //        throw;
-        //    }
-        //    return redeemLog;
-        //}
-        //[HttpGet]
-        //[ActionName("VideoApprove")]
-        //public IList<VideoResponse> VideoApprove()
-        //{
-        //    IList<VideoResponse> lstVideoResponse = new List<VideoResponse>();
-        //    try
-        //    {
-        //        for (int i = 1; i <= 2; i++)
-        //        {
-        //            VideoResponse videoRespose = new VideoResponse();
-        //            videoRespose.VideoId = i;
-        //            videoRespose.VideoCode = "Cv0I2mdYlVw";
-        //            videoRespose.QuestionString = jsonData;
-        //            videoRespose.IsApproved = false;
-        //            lstVideoResponse.Add(videoRespose);
-        //        }
-        //        return lstVideoResponse;
-        //    }
-        //    catch (System.Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+        [HttpGet]
+        [ActionName("RedeemLog")]
+        public IList<RedeemLogRespose> GetRedeemLog()
+        {
+            IList<RedeemLogRespose> redeemLog = new List<RedeemLogRespose>();
+            try
+            {
+                for (int i = 1; i <= 10; i++)
+                {
+                    RedeemLogRespose logRespose = new RedeemLogRespose();
+                    logRespose.UserName = "User" + i;
+                    logRespose.GatewayName = "paytm";
+                    logRespose.RedeemPoints = 100;
+                    logRespose.RedeemDate = System.DateTime.Now.ToShortDateString();
+                    logRespose.TotalPoints = 100;
+                    logRespose.BalancePoints = 100;
+                    redeemLog.Add(logRespose);
+                }
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            return redeemLog;
+        }
+        [HttpGet]
+        [ActionName("VideoApprove")]
+        public IList<VideoResponse> VideoApprove()
+        {
+            IList<VideoResponse> lstVideoResponse = new List<VideoResponse>();
+            try
+            {
+                for (int i = 1; i <= 2; i++)
+                {
+                    VideoResponse videoRespose = new VideoResponse();
+                    videoRespose.VideoId = i;
+                    videoRespose.VideoCode = "Cv0I2mdYlVw";
+                    videoRespose.QuestionString = jsonData;
+                    videoRespose.IsApproved = false;
+                    lstVideoResponse.Add(videoRespose);
+                }
+                return lstVideoResponse;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
     }
 }
