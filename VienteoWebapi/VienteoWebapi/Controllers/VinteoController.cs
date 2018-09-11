@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using VinteoBLL;
 using VinteoModel.ResponseModel;
 
 namespace VienteoWebapi.Controllers
@@ -7,6 +8,12 @@ namespace VienteoWebapi.Controllers
     [RoutePrefix("api/Vinteo")]
     public class VinteoController : ApiController
     {
+        private VinteoAdminBll _VinteoAdmin;
+        public VinteoController()
+        {
+            _VinteoAdmin = new VinteoAdminBll();
+
+        }
         #region private string
         string jsonData = @"{
 'sport': {
@@ -61,25 +68,15 @@ namespace VienteoWebapi.Controllers
             }
             return redeemLog;
         }
-        [HttpGet]
-        [Route("VideoApprove")]
-        public IList<VideoResponse> VideoApprove()
+
+        [HttpPost]
+        [Route("VideoContent")]
+        public IList<VideoResponse> VideoContent(int catagoryId)
         {
             IList<VideoResponse> lstVideoResponse = new List<VideoResponse>();
             try
             {
-                for (int i = 1; i <= 2; i++)
-                {
-                    VideoResponse videoRespose = new VideoResponse
-                    {
-                        VideoId = i,
-                        VideoCode = "Cv0I2mdYlVw",
-                        QuestionString = jsonData,
-                        IsApproved = false
-                    };
-                    lstVideoResponse.Add(videoRespose);
-                }
-                return lstVideoResponse;
+                   return _VinteoAdmin.GetVideoList(catagoryId);
             }
             catch (System.Exception)
             {
