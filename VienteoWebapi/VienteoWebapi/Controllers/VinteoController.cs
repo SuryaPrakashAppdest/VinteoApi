@@ -9,10 +9,11 @@ namespace VienteoWebapi.Controllers
     public class VinteoController : ApiController
     {
         private VinteoAdminBll _VinteoAdmin;
+        private VinteoMasterBll _VMaster;
         public VinteoController()
         {
             _VinteoAdmin = new VinteoAdminBll();
-
+            _VMaster = new VinteoMasterBll();
         }
         #region private string
         string jsonData = @"{
@@ -73,15 +74,23 @@ namespace VienteoWebapi.Controllers
         [Route("VideoContent")]
         public IList<VideoResponse> VideoContent(int catagoryId)
         {
-            IList<VideoResponse> lstVideoResponse = new List<VideoResponse>();
             try
             {
-                   return _VinteoAdmin.GetVideoList(catagoryId);
+                return _VinteoAdmin.GetVideoList(catagoryId);
             }
             catch (System.Exception)
             {
                 throw;
             }
         }
+
+        #region Master 
+        [HttpGet]
+        [Route("Catagories")]
+        public IList<CatagoryMaster> GetCatagories()
+        {
+            return _VMaster.GetCatagories();
+        }
+        #endregion
     }
 }

@@ -84,8 +84,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.interface\IAuthenticate.cs" />
     <Compile Include="Repository.interface\IVinteoAdmin.cs" />
+    <Compile Include="Repository.interface\IVinteoMaster.cs" />
     <Compile Include="Repository\Authenticate.cs" />
     <Compile Include="Repository\VinteoAdmin.cs" />
+    <Compile Include="Repository\VinteoMaster.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="EcashDb\ECash.edmx">
